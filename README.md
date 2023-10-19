@@ -8,14 +8,14 @@ This script will remove all default appx packages (that can be removed) and unin
 Things removed:
 
 All uwp store apps
-Edge
-Defender Disabled
-Backup App
-steps recorder
-quick assist
-hello face
-Speech App
-Printing and Fax app
+Edge,
+Defender Disabled,
+Backup App,
+steps recorder,
+quick assist,
+hello face,
+Speech App,
+Printing and Fax app,
 Narrator
 
 Note: Photos App is removed and Photo Viewer will be set to default
