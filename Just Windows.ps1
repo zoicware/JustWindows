@@ -219,15 +219,15 @@ Start-Sleep 5
 
             
                 
-                if(Get-WmiObject -Class Win32_Product | Where-Object{$_.Name -eq “Microsoft Update Health Tools"})
+                if(Get-WmiObject -Class Win32_Product | Where-Object{$_.Name -eq Â“Microsoft Update Health Tools"})
                 {
-                $MyApp = Get-WmiObject -Class Win32_Product | Where-Object{$_.Name -eq “Microsoft Update Health Tools"}
+                $MyApp = Get-WmiObject -Class Win32_Product | Where-Object{$_.Name -eq Â“Microsoft Update Health Tools"}
                 $MyApp.Uninstall()
                 }
 
-                 if(Get-WmiObject -Class Win32_Product | Where-Object{$_.Name -like “*Update for Windows 10*"})
+                 if(Get-WmiObject -Class Win32_Product | Where-Object{$_.Name -like Â“*Update for Windows 10*"})
                 {
-                $MyApp = Get-WmiObject -Class Win32_Product | Where-Object{$_.Name -like “*Update for Windows 10*"}
+                $MyApp = Get-WmiObject -Class Win32_Product | Where-Object{$_.Name -like Â“*Update for Windows 10*"}
                 $MyApp.Uninstall()
                 }
                       
@@ -311,7 +311,7 @@ $wshell.SendKeys('^{ESCAPE}')
 # remove some other apps
 
 #backup app
-dism /online /remove-package /packagename:Microsoft-Windows-UserExperience-Desktop-Package~31bf3856ad364e35~amd64~~10.0.19041.3570 /NoRestart
+dism /online /Get-Packages | Select-String "Microsoft-Windows-UserExperience-Desktop-Package~31bf3856ad364e35~amd64~~.*$" | ForEach-Object { $_.Matches[0].Value } | % {dism /online /remove-package /NoRestart /PackageName:$_}
 
 
 #steps recorder
