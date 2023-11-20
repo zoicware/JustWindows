@@ -219,15 +219,15 @@ Start-Sleep 5
 
             
                 
-                if(Get-WmiObject -Class Win32_Product | Where-Object{$_.Name -eq Microsoft Update Health Tools"})
+                if(Get-WmiObject -Class Win32_Product | Where-Object{$_.Name -eq "Microsoft Update Health Tools"})
                 {
-                $MyApp = Get-WmiObject -Class Win32_Product | Where-Object{$_.Name -eq Microsoft Update Health Tools"}
+                $MyApp = Get-WmiObject -Class Win32_Product | Where-Object{$_.Name -eq "Microsoft Update Health Tools"}
                 $MyApp.Uninstall()
                 }
 
-                 if(Get-WmiObject -Class Win32_Product | Where-Object{$_.Name -like *Update for Windows 10*"})
+                 if(Get-WmiObject -Class Win32_Product | Where-Object{$_.Name -like "*Update for Windows 10*"})
                 {
-                $MyApp = Get-WmiObject -Class Win32_Product | Where-Object{$_.Name -like *Update for Windows 10*"}
+                $MyApp = Get-WmiObject -Class Win32_Product | Where-Object{$_.Name -like "*Update for Windows 10*"}
                 $MyApp.Uninstall()
                 }
                       
